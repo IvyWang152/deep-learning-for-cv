@@ -60,7 +60,8 @@ def mutate_tensor(x, indices, values):
   #                    TODO: Implement this function                          #
   #############################################################################
   # Replace "pass" statement with your code
-  pass
+  for i in range(len(indices)):
+    x[indices[i][0],indices[i][1]] = values[i]
   #############################################################################
   #                            END OF YOUR CODE                               #
   #############################################################################
