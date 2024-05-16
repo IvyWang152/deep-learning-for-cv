@@ -90,7 +90,13 @@ def count_tensor_elements(x):
   #   You CANNOT use the built-in functions torch.numel(x) or x.numel().      #
   #############################################################################
   # Replace "pass" statement with your code
-  pass
+  s = list(x.shape)
+  for i in s:
+    if num_elements == None:
+      num_elements = 1
+    num_elements = num_elements * i
+ 
+  
   #############################################################################
   #                            END OF YOUR CODE                               #
   #############################################################################
@@ -112,7 +118,7 @@ def create_tensor_of_pi(M, N):
   #       TODO: Implement this function. It should take one line.             #
   #############################################################################
   # Replace "pass" statement with your code
-  pass
+  x = torch.full((M,N), 3.14)
   #############################################################################
   #                            END OF YOUR CODE                               #
   #############################################################################
@@ -137,7 +143,11 @@ def multiples_of_ten(start, stop):
   #                    TODO: Implement this function                          #
   #############################################################################
   # Replace "pass" statement with your code
-  pass
+  first = (start+9)//10 * 10
+  last = stop // 10 * 10
+  if first > stop:
+    x = torch.empty(0,)
+  x = torch.arrange(first,last+1,10,dtype=torch.float64)
   #############################################################################
   #                            END OF YOUR CODE                               #
   #############################################################################
