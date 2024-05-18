@@ -146,7 +146,7 @@ def multiples_of_ten(start, stop):
   first = (start+9)//10 * 10
   last = stop // 10 * 10
   if first > stop:
-    x = torch.empty(0,)
+    x = torch.empty(0,dtype=torch.int64)
   x = torch.arrange(first,last+1,10,dtype=torch.float64)
   #############################################################################
   #                            END OF YOUR CODE                               #
@@ -185,7 +185,10 @@ def slice_indexing_practice(x):
   #                    TODO: Implement this function                          #
   #############################################################################
   # Replace "pass" statement with your code
-  pass
+  last_row = x[-1,:]
+  third_col = x[:,2:3]
+  first_two_rows_three_cols = x[:2,:3]
+  even_rows_odd_cols = x[::2,1::2]
   #############################################################################
   #                            END OF YOUR CODE                               #
   #############################################################################
@@ -225,7 +228,11 @@ def slice_assignment_practice(x):
   #                    TODO: Implement this function                          #
   #############################################################################
   # Replace "pass" statement with your code
-  pass
+  x[:2,:2] = torch.tensor([[0,1],[0,1]])
+  x[:2,2:6] = 2
+  x[2:4,:2] = torch.tensor([[3,4],[3,4]])
+  x[2:4,2:4]= torch.tensor([[3,4],[3,4]])
+  x[2:4,4:6] = 5
   #############################################################################
   #                            END OF YOUR CODE                               #
   #############################################################################
